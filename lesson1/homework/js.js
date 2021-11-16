@@ -41,13 +41,10 @@ let person=(`${firstName} ${middleName} ${lastName}`);
 
 <!-- - За допомогою 3х різних prompt() отримати 3 слова які являються вашими Імям, По-Батькові та роками.-->
 <!--Вивести "Вітаю *Імя* *По батькові*. Тобі *вік* років".-->
-let year=2002;
-let age=19;
-prompt(firstName,[]);
-prompt(lastName,[]);
-prompt(year,[]);
-prompt('Вітаю',`${firstName},${lastName}`, []);
-prompt('Тобі',`${age}`, []);
+firstName = prompt('firstName');
+lastName = prompt('lastName');
+let age = prompt('age');
+console.log('Вітаю',firstName,lastName,'Тобі',age,'років' );
 
 
 <!-- - За допомогою оператора typeof визначити типи наступних змінних та вивести їх в консоль.-->
