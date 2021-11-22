@@ -52,7 +52,11 @@ console.log(arrayMinNumber(arrayNumbers));
 // - створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
 let Elements=[1,2,10];
 function arrayOfElements(Elements){
-    return Elements[0] + Elements[1] + Elements[2];
+    let sum=0;
+    for (const element of Elements){
+        sum+=element;
+    }
+    return sum;
 }
 console.log(arrayOfElements(Elements));
 

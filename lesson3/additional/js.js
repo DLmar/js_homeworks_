@@ -5,10 +5,9 @@ document.write(`a:    `);
 let emptyArrayParni=[];
 for (let i = 0; i < 100; i++){
     if (i % 2 === 0){
-        emptyArrayParni = i;
-        document.write(' ',emptyArrayParni);
+        emptyArrayParni.push(i);
     }
-}
+}document.write(' ',emptyArrayParni);
 document.write(`</div>`);
 
 
@@ -17,10 +16,9 @@ document.write(`b: `);
 let emptyArrayNeparni=[];
 for (let i = 0; i < 100; i++){
     if (i % 2 === 1){
-        emptyArrayNeparni = i;
-        document.write(' ',emptyArrayNeparni);
+        emptyArrayNeparni.push(i);
     }
-}
+}  document.write(' ',emptyArrayNeparni);
 
 //        c. Заповнити масив 20ма рандомними числами. (Google: Generate random number JS)
 document.write(`<div>`)
@@ -57,9 +55,11 @@ console.log('*****');
 let newarr=[];
 for (let i = 0; i < 30; i += 3){
     if (i % 2 === 0) {
-        newarr=i;
-        console.log(newarr);
+        newarr.push(i);
     }
+}
+for (let x=0; x<newarr.length;x++) {
+    console.log(newarr[x]);
 }
 console.log('*****');
 
@@ -97,8 +97,11 @@ let arrayElements=[9,'xxx',11,true,'ll',10,7];
 let arrayNumbers=[];
 for (let i=0; i<arrayElements.length; i++){
     if (typeof arrayElements[i] === 'number'){
-        arrayNumbers = arrayElements[i];
-    }console.log(arrayNumbers);
+        arrayNumbers.push(arrayElements[i]);
+    }
+}
+for (let x=0;x<arrayNumbers.length;x++) {
+    console.log(arrayNumbers[x]);
 }
 
 // - Дано 2 масиви з рівною кількістю об'єктів.
@@ -119,54 +122,13 @@ let citiesWithId = [
 
 // З'єднати в один об'єкт користувача та місто з відповідними "id" та "user_id" .
 // Записати цей об'єкт в новий масив
-    let usersWithCities = [
-        {
-            id: 1, // <===
-            name: 'vasya',
-            age: 31,
-            status: false,
-            address: {
-                user_id: 1, // <===
-                country: 'Ukraine',
-                city: 'Ternopil'
-            }
-        },
-
-        {
-            id: 2, // <===
-            name: 'petya',
-            age: 30,
-            status: true,
-            address: {
-                user_id: 2, // <===
-                country: 'Poland',
-                city: 'Krakow'
-            }
-
-        },
-        {
-            id: 3, // <===
-            name: 'kolya',
-            age: 29,
-            status: true,
-            address: {
-                user_id: 3, // <===
-                country: 'Poland',
-                city:'Krakow'
-            }
-        },
-        {
-            id: 4, // <===
-            name: 'olya',
-            age: 28,
-            status: false,
-            address: {
-                user_id: 4, // <===
-                country:'USA',
-                city: 'Miami'
-            }
+for (const user of usersWithId) {
+    for (const city of citiesWithId) {
+        if (user.id === city.user_id){
+            user.address = city;
         }
-    ]
+    }
+}
 console.log('*****');
 
 // - Взяти масив з 10 чисел або створити його. Вивести в консоль тільки ті елементи, значення яких є парними.
