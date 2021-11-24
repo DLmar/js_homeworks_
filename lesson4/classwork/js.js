@@ -117,5 +117,7 @@ function reverse(arr){
     for (let i = newArr.length - 1, ri=0; i >= 0; i--,ri++) {
         newArr[ri] = newArr[i];
     }
+    console.log
     return newArr;
 }
+
