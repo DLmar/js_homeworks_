@@ -7,7 +7,9 @@ sep_2021.classList.add('sep-2021');
 
 // b) робить шириниу елементу ul 400px
 let ulByTag = document.getElementsByTagName('ul');
-ulByTag.style.width = '400px';
+for (const ulByTagElement of ulByTag) {
+    ulByTagElement.style.width = '400px';
+}
 
 
 // c) робить шириниу всіх елементів з класом linkList шириною 50%
@@ -48,8 +50,8 @@ for (const aElement of aElements ){
 // h) отримує всі елементи 'a' та додає їм клас element_XXX. Де XXX - текстовий контент елементу a
 let aElems = document.getElementsByTagName('a');
 for (const aElem of aElems ){
-    let NewClass = a.innerText;
-    aElem.classList.add('NewClass');
+    let newClass = a.innerText;
+    aElem.classList.add('newClass');
 }
 
 

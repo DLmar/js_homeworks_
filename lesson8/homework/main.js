@@ -2,11 +2,11 @@
 // - Напишіть код,  який за допомоги document.getElementById або document.getElementsByClassName або document.getElementsByTagName :
 
 // -- отримує текст з параграфа з id "content"
-let contentID = document.getElementById('content');
+let contentID = document.getElementsByTagName('content');
 console.log(contentID);
 
 // -- отримує текст з блоку з id "rules"
-let rulesID = document.getElementById('rules');
+let rulesID = document.getElementsByTagName('rules');
 console.log(rulesID);
 
 // -- замініть текст параграфа з id 'content' на будь-який інший
