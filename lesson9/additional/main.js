@@ -237,25 +237,36 @@ let usersList = [
 // В цьому блоці, під кожну властивість, та властивості внутрішніх об'єктів створити свої окремі блок.
 for (const user of usersList){
     let userDiv = document.createElement('div');
-    let idDiv = document.createElement('div');               idDiv.innerText = user.id;
-    let nameDiv = document.createElement('div');             nameDiv.innerText = user.name;
-    let usernameDiv = document.createElement('div');         usernameDiv.innerText = user.username;
-    let emailDiv = document.createElement('div');            emailDiv.innerText = user.email;
-    let addressDiv = document.createElement('div');          addressDiv.innerText = user.address;
-        let streetDiv = document.createElement('div');       streetDiv.innerText = user.address.street;
-        let suiteDiv = document.createElement('div');        suiteDiv.innerText = user.address.suite;
-        let cityDiv = document.createElement('div');         cityDiv.innerText = user.address.city;
-        let zipcodeDiv = document.createElement('div');      zipcodeDiv.innerText = user.address.zipcode;
-        let geoDiv = document.createElement('div');          geoDiv.innerText = user.address.geo;
-            let latDiv = document.createElement('div');      latDiv.innerText = user.address.geo.lat;
-            let lngDiv = document.createElement('div');      lngDiv.innerText = user.address.geo.lng;
-    let phoneDiv = document.createElement('div');            phoneDiv.innerText = user.phone;
-    let websiteDiv = document.createElement('div');          websiteDiv.innerText = user.website;
-    let companyDiv = document.createElement('div');          companyDiv.innerText = user.company;
-        let companyNameDiv = document.createElement('div');  companyNameDiv.innerText = user.company.name;
-        let catchPhraseDiv = document.createElement('div');  catchPhraseDiv.innerText = user.company.catchPhrase;
-        let bsDiv = document.createElement('div');           bsDiv.innerText = user.company.bs;
+    let idDiv = document.createElement('div');
+    let nameDiv = document.createElement('div');
+    let usernameDiv = document.createElement('div');
+    let emailDiv = document.createElement('div');
+    let addressDiv = document.createElement('div');
+        let streetDiv = document.createElement('div');
+        let suiteDiv = document.createElement('div');
+        let cityDiv = document.createElement('div');
+        let zipcodeDiv = document.createElement('div');
+        let geoDiv = document.createElement('div');
+        let latDiv = document.createElement('div');
+        let lngDiv = document.createElement('div');
+    let phoneDiv = document.createElement('div');
+    let websiteDiv = document.createElement('div');
+    let companyDiv = document.createElement('div');
+    let companyNameDiv = document.createElement('div');
+    let catchPhraseDiv = document.createElement('div');
+    let bsDiv = document.createElement('div');
 
+    idDiv.innerText = user.id;
+    nameDiv.innerText = user.name;
+    usernameDiv.innerText = user.username;
+    emailDiv.innerText = user.email;
+    addressDiv.innerText = JSON.stringify(user.address);
+    phoneDiv.innerText = user.phone;
+    websiteDiv.innerText = user.website;
+    companyDiv.innerText = JSON.stringify(user.company);
+    companyNameDiv.innerText = user.company.name;
+    catchPhraseDiv.innerText = user.company.catchPhrase;
+    bsDiv.innerText = user.company.bs;
 
     geoDiv.append(latDiv, lngDiv);
     addressDiv.append(streetDiv, suiteDiv, cityDiv, zipcodeDiv, geoDiv);
