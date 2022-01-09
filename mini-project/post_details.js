@@ -1,16 +1,22 @@
-let posts = JSON.parse(localStorage.getItem('posts'));
-let comments = JSON.parse(localStorage.getItem('comments'));
+let url = new URL(location.href);
+let idOfPost = url.searchParams.get('id');
 
-for(const post of posts) {
-    let postBodyDiv = document.createElement('div');
-    postBodyDiv.innerText = JSON.stringify(post);
-    document.body.append(postBodyDiv);
+ fetch('https://jsonplaceholder.typicode.com/users/posts'+ idOfPost)
+     .then(value => value.json())
+     .then(value => {
+         let div = document.createElement('div');
+         div.innerText = JSON.stringify(value);
+         document.body.appendChild(div);
 
-    for (const comment of comments) {
-        if (comment.id === post.id) {
-            let commentDiv = document.createElement('div')
-            commentDiv.innerText = JSON.stringify(comment);
-            document.body.append(commentDiv); break;
-        }
-    }
-}
+         fetch('https://jsonplaceholder.typicode.com/posts/'+ value.id +'/comments')
+             .then(comments => comments.json())
+             .then(comments => {
+                 let div2 = document.createElement('div')
+                 div2.innerText = JSON.stringify(comments);
+                 document.body.appendChild(div2);
+
+             })
+
+     })
+
+

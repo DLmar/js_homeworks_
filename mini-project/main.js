@@ -16,65 +16,21 @@ fetch('https://jsonplaceholder.typicode.com/users')
 // которая имеет детальную информацию про объект на который кликнули
 // На странице user-details.html:
 // 4 Вывести всю, без исключения, информацию про объект user на кнопку/ссылку которого был совершен клик ранее.
-            let userBtn = document.createElement('button');
-            userBtn.innerText = 'details';
-            userBtn.onclick = function (){
-               location.href = 'user-details.html';
-               users = JSON.parse(localStorage.getItem('users')) || [];
-               users.push(user);
-               localStorage.setItem('users', JSON.stringify(users));
+            let detailsLink = document.createElement('a');
+            detailsLink.innerText = 'details';
+            detailsLink.href = 'user-details.html?id=' + user.id;
+            userDiv.appendChild(detailsLink);
+            document.body.appendChild(userDiv);
             }
+        })
 // 5 Добавить кнопку "post of current user", при клике на которую, появляются title всех постов текущего юзера
 // (для получения постов используйте эндпоинт https://jsonplaceholder.typicode.com/users/USER_ID/posts)
-
-            fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
-                .then(posts => posts.json())
-                .then(posts => {
-                    for (const post of posts) {
-                        let postDiv = document.createElement('div');
-                        let post_of_current_user = document.createElement('button');
-                        post_of_current_user.innerText = `post ${post.id}`;
-                        post_of_current_user.onclick = function () {
-                            postDiv.innerText = JSON.stringify(`${post.title}`);
-                        }
-
 // 6 Каждому посту добавить кнопку/ссылку, при клике на которую происходит переход на страницу post-details.html,
 // которая имеет детальную информацию про текущий пост.
 // На странице post-details.html:
 // 7 Вывести всю, без исключения, информацию про объект post на кнопку/ссылку которого был совершен клик ранее.
-
-                        let postBtn = document.createElement('button');
-                        postBtn.innerText = 'post info';
-                        postBtn.onclick = function () {
-                            location.href = 'post-details.html';
-                            posts = JSON.parse(localStorage.getItem('posts')) || [];
-                            posts.push(post);
-                            localStorage.setItem('posts', JSON.stringify(posts));
-
 // 8 Ниже информации про пост, вывести все комментарии текущего поста
 // (эндпоинт для получения информации - https://jsonplaceholder.typicode.com/posts/POST_ID/comments)
-
-                            fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
-                                .then(comments => comments.json())
-                                .then(comments => {
-                                    for (const comment of comments) {
-                                        comments = JSON.parse(localStorage.getItem('comments')) || [];
-                                        comments.push(comment);
-                                        localStorage.setItem('comments', JSON.stringify(comments));
-                                    }
-
-                                })
-                        }
-                        postDiv.append(post_of_current_user,postBtn);
-                        userDiv.append(postDiv,userBtn);
-
-                    }
-                })
-            document.body.appendChild(userDiv);
-        }
-    })
-
-
 
 // Стилизация проекта -
 // index.html - все блоки с user - по 2 в ряд. кнопки/ссылки находяться под информацией про user.
