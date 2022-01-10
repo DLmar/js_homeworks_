@@ -1,0 +1,16 @@
+.wrap--btn{
+    width: 90%;
+    background: cornflowerblue;
+    color: white;
+    border: none;
+}
+.post--det{
+    margin: 5px;
+    width: 20%;
+    background: darkgrey;
+}
+.comments{
+    margin: 5px;
+    width: 30%;
+    background: cornflowerblue;
+}
